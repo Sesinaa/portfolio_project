@@ -1,16 +1,18 @@
 # portfolio_5599493
 
-A new Flutter project.
+Dies ist ein einfaches Flutter-Projekt mit einer Startseite, die einen Begrüßungstext anzeigt:
 
-## Getting Started
+**„Willkommen im Portfolio von Sesina Habtemichael!“**
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Technische Details
+- **Flutter-Version:** 3.19.0
+- **Plattformen:** macOS, Web, iPad-kompatibel
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Projekt starten
+```bash
+git clone https://github.com/Sesinaa/portfolio_5599493.git
+cd portfolio_5599493
+flutter pub get
+flutter run.
