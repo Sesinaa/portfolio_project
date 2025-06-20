@@ -25,6 +25,7 @@ class _SettingsPageState extends State<SettingsPage> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CheckboxListTile(
               title: const Text('Newsletter abonnieren'),
@@ -57,9 +58,18 @@ class _SettingsPageState extends State<SettingsPage> {
               },
             ),
             const SizedBox(height: 20),
-            Text(
-              'Zusammenfassung:\n'
-              'Newsletter: ${_newsletter ? "Ja" : "Nein"}\n'
-              'Dunkler Modus: ${_darkMode ? "An" : "Aus"}\n'
-              'Offline-Modus: ${_offlineMode ? "An" : "Aus"}',
+            const Divider(),
+            const Text(
+              'Zusammenfassung:',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text('Newsletter: ${_newsletter ? "Ja" : "Nein"}'),
+            Text('Dunkler Modus: ${_darkMode ? "An" : "Aus"}'),
+            Text('Offline-Modus: ${_offlineMode ? "An" : "Aus"}'),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
