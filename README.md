@@ -6,10 +6,20 @@
 
 
 ## Beschreibung
-Dies ist ein einfaches Flutter-Projekt mit einer Startseite, die einen Begrüßungstext anzeigt:
+Dies ist ein Flutter-Projekt zur Umsetzung eines interaktiven Portfolios mit mehreren Seiten.
 
-**„Willkommen im Portfolio von Sesina Habtemichael!“**
-
+## Projektstruktur
+```plaintext
+lib/
+├── main.dart
+├── pages/
+│   ├── home_page.dart
+│   ├── profile_form_page.dart
+│   ├── settings_page.dart
+│   ├── slider_page.dart
+│   └── summary_page.dart
+├── widgets/
+└── models/
 
 ## Technische Details
 - **Flutter-Version:** 3.19.0

@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 
 class SliderPage extends StatefulWidget {
   final double initialValue;
+  final ValueChanged<double> onChanged;
 
-  const SliderPage({Key? key, this.initialValue = 50}) : super(key: key);
+  const SliderPage({
+    Key? key,
+    required this.initialValue,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
-  _SliderPageState createState() => _SliderPageState();
+  State<SliderPage> createState() => _SliderPageState();
 }
 
 class _SliderPageState extends State<SliderPage> {
-  double _sliderValue = 50;
+  late double _currentValue;
 
   @override
   void initState() {
     super.initState();
-    _sliderValue = widget.initialValue;
+    _currentValue = widget.initialValue;
   }
 
   @override
@@ -23,27 +28,32 @@ class _SliderPageState extends State<SliderPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Slider-Seite')),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             Slider(
+              value: _currentValue,
               min: 0,
               max: 100,
-              value: _sliderValue,
               divisions: 100,
-              label: _sliderValue.round().toString(),
+              label: _currentValue.round().toString(),
               onChanged: (value) {
                 setState(() {
-                  _sliderValue = value;
+                  _currentValue = value;
                 });
+                widget.onChanged(value);
               },
             ),
-            Text('Aktueller Wert: ${_sliderValue.toStringAsFixed(0)}'),
+            Text('Aktueller Wert: ${_currentValue.toStringAsFixed(0)}'),
+            const SizedBox(height: 20),
+            LinearProgressIndicator(
+              value: _currentValue / 100,
+            ),
             const SizedBox(height: 20),
             Container(
-              width: 100 + _sliderValue,
-              height: 100 + _sliderValue,
-              color: Color.lerp(Colors.blue, Colors.red, _sliderValue / 100),
+              width: _currentValue + 50,
+              height: 50,
+              color: Colors.blue.withOpacity(_currentValue / 100),
             ),
           ],
         ),
